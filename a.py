@@ -1,14 +1,11 @@
-    import tkinter as tk
-    from tkhtmlview import HTMLLabel
-    
-    root = tk.Tk()
-    root.title("Embedded Website")
-    
-    html_label = HTMLLabel(root, width=800, height=600)
-    html_label.pack(fill="both", expand=True)
-    
-    # Load the website
-    url = "https://www.example.com"
-    html_label.load_url(url)
-    
-    root.mainloop()
+import gtk
+import webkit
+import gobject
+
+gobject.threads_init()
+win = gtk.Window()
+bro = webkit.WebView()
+bro.open("http://www.google.com")
+win.add(bro)
+win.show_all()
+gtk.main()
